@@ -39,7 +39,9 @@ app.get("/alunos/:id", (req, res) => {
             mensagem: "Aluno não encontrado."
         });
     }
+    res.status(200).json(aluno);
 })
+
 
 // POST - Cadastrar aluno
 
@@ -110,3 +112,8 @@ app.delete("/alunos/:id", (req, res) => {
     alunos = alunos.filter(a => a.id !==id);
     res.status(204).send();
 })
+
+//iniciar servidor
+app.listen(PORT, () => {
+    console.log(`API executando em http://localhost:${PORT}`);
+});
